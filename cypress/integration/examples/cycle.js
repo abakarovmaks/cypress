@@ -1,13 +1,16 @@
 /// <reference types='Cypress'/>
 
-describe('Second Test', () => {
-  it('Second test case', () => {
+describe('Cycle', () => {
+  it('Cycle', () => {
     cy.visit('https://rahulshettyacademy.com/seleniumPractise/#/');
+
     cy.get('.search-keyword').type('ca');
     cy.wait(1000);
 
+    // Add specific name for selector
     cy.get('.products').as('productLocator');
 
+    // Add cycle for selector
     cy.get('@productLocator')
       .find('.product')
       .each(($el, index, list) => {

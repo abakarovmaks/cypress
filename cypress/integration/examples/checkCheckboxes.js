@@ -1,7 +1,7 @@
 /// <reference types='Cypress'/>
 
-describe('Third Test', () => {
-  it('Third test case', () => {
+describe('Check checkboxes', () => {
+  it('Check checkboxes', () => {
     cy.visit('https://rahulshettyacademy.com/AutomationPractice/');
 
     // Add check and verify checkbox
