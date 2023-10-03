@@ -10,6 +10,7 @@
   "author": "Abakarov Maksym",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.3.0"
+    "cypress": "^13.3.0",
+    "cypress-iframe": "^1.0.1"
   }
 }
