@@ -2,8 +2,8 @@
 /// <reference types='cypress-iframe'/>
 import 'cypress-iframe';
 
-describe('Handling Tab', () => {
-  it('Handling Tab', () => {
+describe('iframe', () => {
+  it('iframe', () => {
     cy.visit('https://rahulshettyacademy.com/AutomationPractice/');
 
     // Open the iframe

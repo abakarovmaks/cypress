@@ -1,7 +1,7 @@
 /// <reference types='Cypress'/>
 
-describe('Handling Tab', () => {
-  it('Handling Tab', () => {
+describe('Handling Web Tab', () => {
+  it('Handling Web Tab', () => {
     cy.visit('https://rahulshettyacademy.com/AutomationPractice/');
 
     // Cycle
