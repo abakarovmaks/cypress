@@ -33,5 +33,10 @@ describe('Framework 1st', () => {
     // Use custom command
     cy.selectProduct('Blackberry');
     cy.selectProduct('iphone X');
+
+    // Use data array with forEach
+    globalThis.data.productName.forEach((element) => {
+      cy.selectProduct(element);
+    });
   });
 });
