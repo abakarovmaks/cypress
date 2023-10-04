@@ -2,7 +2,7 @@
 
 describe('Handling Tab', () => {
   it('Handling Tab', () => {
-    cy.visit('https://rahulshettyacademy.com/AutomationPractice/');
+    cy.visit(Cypress.env('url') + '/AutomationPractice/');
 
     //  Invoke function for showig mouse hover
     cy.get('.mouse-hover-content').invoke('show');

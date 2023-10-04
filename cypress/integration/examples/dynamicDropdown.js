@@ -2,7 +2,7 @@
 
 describe('Dynamic dropdown', () => {
   it('Dynamic dropdown', () => {
-    cy.visit('https://rahulshettyacademy.com/AutomationPractice/');
+    cy.visit(Cypress.env('url') + '/AutomationPractice/');
 
     // Select and verify one of the dynamic dropdowns select
     cy.get('#autocomplete').type('ind');

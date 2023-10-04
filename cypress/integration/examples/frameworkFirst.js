@@ -7,7 +7,7 @@ describe('Framework with PageObject', () => {
   const homePage = new HomePage();
   const productPage = new ProductPage();
   before(() => {
-    cy.visit('https://rahulshettyacademy.com/angularpractice/');
+    cy.visit(Cypress.env('url') + '/angularpractice/');
     // Get information from fixtures/example.json file (should use with globalThis!!!)
     cy.fixture('example').then((data) => {
       globalThis.data = data;
@@ -15,7 +15,7 @@ describe('Framework with PageObject', () => {
   });
 
   it('Framework with PageObject', () => {
-    Cypress.config('defaultCommandTimeout', 8000);
+    // Cypress.config('defaultCommandTimeout', 8000); // It isnt working
     homePage.editBox().type(globalThis.data.name);
     homePage.getGender().select(globalThis.data.gender);
 
@@ -66,7 +66,8 @@ describe('Framework with PageObject', () => {
 
     cy.get('.btn.btn-success').click();
     cy.get('#country').type('India');
-    cy.get('.suggestions > ul > li > a').click();
+    // Set a timeout inside the get method 8000
+    cy.get('.suggestions > ul > li > a', { timeout: 8000 }).click();
     cy.get('.checkbox > label').click();
     cy.get('input[type="submit"]').click();
     cy.get('.alert').contains(

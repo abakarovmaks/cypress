@@ -2,7 +2,7 @@
 
 describe('Hidden elemenets', () => {
   it('Hidden elements', () => {
-    cy.visit('https://rahulshettyacademy.com/AutomationPractice/');
+    cy.visit(Cypress.env('url') + '/AutomationPractice/');
 
     cy.get('#hide-textbox').click();
     cy.get('#displayed-text').should('not.be.visible');

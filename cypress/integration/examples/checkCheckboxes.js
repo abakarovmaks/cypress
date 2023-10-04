@@ -2,7 +2,7 @@
 
 describe('Check checkboxes', () => {
   it('Check checkboxes', () => {
-    cy.visit('https://rahulshettyacademy.com/AutomationPractice/');
+    cy.visit(Cypress.env('url') + '/AutomationPractice/');
 
     // Add check and verify checkbox
     cy.get('#checkBoxOption1')

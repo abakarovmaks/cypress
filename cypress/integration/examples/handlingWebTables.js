@@ -2,7 +2,7 @@
 
 describe('Handling Web Tab', () => {
   it('Handling Web Tab', () => {
-    cy.visit('https://rahulshettyacademy.com/AutomationPractice/');
+    cy.visit(Cypress.env('url') + '/AutomationPractice/');
 
     // Cycle
     cy.get('tr td:nth-child(2)').each(($el, index, list) => {

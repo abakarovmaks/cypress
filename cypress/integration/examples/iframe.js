@@ -4,7 +4,7 @@ import 'cypress-iframe';
 
 describe('iframe', () => {
   it('iframe', () => {
-    cy.visit('https://rahulshettyacademy.com/AutomationPractice/');
+    cy.visit(Cypress.env('url') + '/AutomationPractice/');
 
     // Open the iframe
     cy.frameLoaded('#courses-iframe');

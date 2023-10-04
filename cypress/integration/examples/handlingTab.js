@@ -2,7 +2,7 @@
 
 describe('Handling Tab', () => {
   it('Handling Tab', () => {
-    cy.visit('https://rahulshettyacademy.com/AutomationPractice/');
+    cy.visit(Cypress.env('url') + '/AutomationPractice/');
 
     // Remove attribute from selector
     cy.get('#opentab').invoke('removeAttr', 'target').click();

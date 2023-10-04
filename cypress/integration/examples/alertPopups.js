@@ -2,7 +2,7 @@
 
 describe('Alert popups', () => {
   it('Alert popups', () => {
-    cy.visit('https://rahulshettyacademy.com/AutomationPractice/');
+    cy.visit(Cypress.env('url') + '/AutomationPractice/');
 
     cy.get('#alertbtn').click();
     cy.get('#confirmbtn').click();
