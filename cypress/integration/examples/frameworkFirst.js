@@ -15,6 +15,7 @@ describe('Framework with PageObject', () => {
   });
 
   it('Framework with PageObject', () => {
+    Cypress.config('defaultCommandTimeout', 8000);
     homePage.editBox().type(globalThis.data.name);
     homePage.getGender().select(globalThis.data.gender);
 
@@ -40,5 +41,13 @@ describe('Framework with PageObject', () => {
     });
 
     productPage.checkoutButton().click();
+    cy.get('.btn.btn-success').click();
+    cy.get('#country').type('India');
+    cy.get('.suggestions > ul > li > a').click();
+    cy.get('.checkbox > label').click();
+    cy.get('input[type="submit"]').click();
+    cy.get('.alert').contains(
+      'Success! Thank you! Your order will be delivered in next few weeks :-).'
+    );
   });
 });
