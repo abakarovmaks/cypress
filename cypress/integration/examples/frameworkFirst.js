@@ -40,7 +40,30 @@ describe('Framework with PageObject', () => {
       cy.selectProduct(element);
     });
 
+    // Variable for sum
+    let sum = 0;
     productPage.checkoutButton().click();
+
+    // Cycle for getting sum of goods
+    cy.get('tr td:nth-child(4) strong').each(($el, index, list) => {
+      const actualText = $el.text();
+      // Using of JavaScript
+      let result = actualText.split(' ');
+      result = result[1].trim();
+      sum = Number(sum) + Number(result);
+      cy.log(result);
+      cy.log(sum);
+    });
+
+    // Comparing results of sum
+    cy.get('h3 strong').then((elem) => {
+      elem.text();
+      const actualText = elem.text();
+      let result = actualText.split(' ');
+      let total = result[1].trim();
+      expect(Number(total)).to.equal(sum);
+    });
+
     cy.get('.btn.btn-success').click();
     cy.get('#country').type('India');
     cy.get('.suggestions > ul > li > a').click();
