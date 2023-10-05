@@ -46,7 +46,7 @@ Then('Select the country, submit and verify Thankyou message', () => {
   cy.get('.btn.btn-success').click();
   cy.get('#country').type('India');
   cy.get('.suggestions > ul > li', { timeout: 6000 }).click();
-  cy.get('.checkbox > label').click();
+  cy.get('.checkbox > label').click({ force: true });
   cy.get('input[type="submit"]').click();
   cy.get('.alert').contains(
     'Success! Thank you! Your order will be delivered in next few weeks :-).'

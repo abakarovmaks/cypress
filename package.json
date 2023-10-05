@@ -7,11 +7,18 @@
     "test": "node_modules\\.bin\\cypress run",
     "chromeTest": "npm run test -- --browser chrome"
   },
+  "cypress-cucumber-preprocessor": {
+    "json": {
+      "enabled": true,
+      "output": "cypress/cucumberReports/results.json"
+    }
+  },
   "author": "Abakarov Maksym",
   "license": "ISC",
   "devDependencies": {
     "cypress": "^13.3.0",
-    "cypress-iframe": "^1.0.1"
+    "cypress-iframe": "^1.0.1",
+    "multiple-cucumber-html-reporter": "^3.5.0"
   },
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^18.0.6",
