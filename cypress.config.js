@@ -1,4 +1,16 @@
 const { defineConfig } = require('cypress');
+const {
+  addCucumberPreprocessorPlugin,
+} = require('@badeball/cypress-cucumber-preprocessor');
+const {
+  preprocessor,
+} = require('@badeball/cypress-cucumber-preprocessor/browserify');
+
+async function setupNodeEvents(on, config) {
+  await addCucumberPreprocessorPlugin(on, config);
+  on('file:preprocessor', preprocessor(config));
+  return config;
+}
 
 module.exports = defineConfig({
   defaultCommandTimeout: 6000,
@@ -9,9 +21,8 @@ module.exports = defineConfig({
     runMode: 1,
   },
   e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
-    specPattern: 'cypress/integration/examples/*.js',
+    setupNodeEvents,
+    specPattern: 'cypress/integration/examples/BDD/*.feature',
+    // specPattern: 'cypress/integration/examples/*.js',
   },
 });

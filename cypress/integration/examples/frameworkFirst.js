@@ -40,9 +40,10 @@ describe('Framework with PageObject', () => {
       cy.selectProduct(element);
     });
 
+    productPage.checkoutButton().click();
+
     // Variable for sum
     let sum = 0;
-    productPage.checkoutButton().click();
 
     // Cycle for getting sum of goods
     cy.get('tr td:nth-child(4) strong').each(($el, index, list) => {
