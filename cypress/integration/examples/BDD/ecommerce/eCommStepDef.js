@@ -1,17 +1,19 @@
-import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
+/// <reference types='Cypress'/>
 import HomePage from '../../../pageObjects/HomePage';
 import ProductPage from '../../../pageObjects/ProductPage';
+
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 
 const homePage = new HomePage();
 const productPage = new ProductPage();
 let name;
 
 // First
-Given('I open ecommerce page', () => {
+Given('Open ecommerce page', () => {
   cy.visit(Cypress.env('url') + '/angularpractice/');
 });
 
-When('I add items to cart', () => {
+When('Add items to cart', () => {
   homePage.getShopTab().click();
   globalThis.data.productName.forEach((element) => {
     cy.selectProduct(element);
@@ -54,7 +56,7 @@ Then('Select the country, submit and verify Thankyou message', () => {
 });
 
 // Second
-When('I fell the form details', (dataTable) => {
+When('Fell the form details', (dataTable) => {
   name = dataTable.rawTable[1][0];
   homePage.editBox().type(name);
   homePage.getGender().select(dataTable.rawTable[1][1]);
