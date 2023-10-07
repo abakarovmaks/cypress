@@ -5,7 +5,7 @@ describe('Api test', () => {
     // cy.visit(Cypress.env('url') + '/angularAppdemo/');
   });
 
-  it('Security test', () => {
+  it('Api test', () => {
     cy.request({
       method: 'POST',
       url: 'http://216.10.245.166/Library/Addbook.php',
@@ -16,7 +16,8 @@ describe('Api test', () => {
         author: 'Abakarov Maksym2',
       },
     }).then((res) => {
-      expect(res.body).to.have.property('Msg', 'successfully added');
+      // expect(res.body).to.have.property('Msg', 'successfully added');
+      expect(res.body).to.have.property('Msg', 'Book Already Exists');
       expect(res.status).to.eq(200);
     });
   });

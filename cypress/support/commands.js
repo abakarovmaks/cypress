@@ -10,11 +10,24 @@
 //
 //
 // -- This is a parent command --
+
+// Array cycle
 Cypress.Commands.add('selectProduct', (productName) => {
   cy.get('h4.card-title').each(($el, index, list) => {
     if ($el.text().includes(productName)) {
       cy.get('button.btn.btn-info').eq(index).click();
     }
+  });
+});
+
+// Token
+Cypress.Commands.add('LoginAPI', () => {
+  cy.request('POST', 'https://rahulshettyacademy.com/api/ecom/auth/login', {
+    userEmail: 'abakarovmaks@gmail.com',
+    userPassword: 'K.,k.cgjhn2',
+  }).then((res) => {
+    expect(res.status).to.eq(200);
+    Cypress.env('token', res.body.token);
   });
 });
 
