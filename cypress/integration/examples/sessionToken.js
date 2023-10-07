@@ -13,5 +13,20 @@ describe('JWT Session', () => {
         },
       });
     });
+
+    // Add items to cart
+    cy.get('.card-body button:last-of-type').eq(1).click();
+    cy.get("[routerlink*='cart']").click();
+    cy.contains('Checkout').click();
+    cy.get("[placeholder*='Country']").type('Ind');
+    cy.get('.ta-results button').each((el) => {
+      if (el.text() === ' India') {
+        cy.wrap(el).click();
+      }
+    });
+    cy.get('.action__submit').click({ force: true });
+    cy.wait(2000);
+
+    cy.contains('CSV').click();
   });
 });
