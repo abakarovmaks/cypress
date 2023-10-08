@@ -16,12 +16,16 @@
   "author": "Abakarov Maksym",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.22.20",
+    "@babel/register": "^7.22.15",
     "cypress": "^13.3.0",
     "cypress-iframe": "^1.0.1",
     "multiple-cucumber-html-reporter": "^3.5.0"
   },
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^18.0.6",
-    "@cypress/browserify-preprocessor": "^3.0.2"
+    "@cypress/browserify-preprocessor": "^3.0.2",
+    "neat-csv": "^5.1.0"
   }
 }
