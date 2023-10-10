@@ -41,5 +41,10 @@ describe('JWT Session', () => {
       cy.log('RESULT--------', result.data[1].A);
       expect(productName).to.equal(result.data[1].B);
     });
+
+    // Native cypress method that verifying in whole file text, that text of the product is in
+    cy.readFile(filePath).then((text) => {
+      expect(text).to.include(productName);
+    });
   });
 });
