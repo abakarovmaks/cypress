@@ -23,8 +23,8 @@ Cypress.Commands.add('selectProduct', (productName) => {
 // Token
 Cypress.Commands.add('LoginAPI', () => {
   cy.request('POST', 'https://rahulshettyacademy.com/api/ecom/auth/login', {
-    userEmail: 'abakarovmaks@gmail.com',
-    userPassword: 'K.,k.cgjhn2',
+    userEmail: 'abakarovmakscypress@gmail.com',
+    userPassword: 'cypressTest1',
   }).then((res) => {
     expect(res.status).to.eq(200);
     Cypress.env('token', res.body.token);

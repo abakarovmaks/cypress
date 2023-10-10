@@ -37,7 +37,7 @@ describe('JWT Session', () => {
     cy.wait(2000);
     cy.contains('CSV').click();
 
-    // Read JSON file
+    // Read JSON file from CSV
     cy.readFile(
       // Dynamically generated path to JSON file
       Cypress.config('fileServerFolder') +

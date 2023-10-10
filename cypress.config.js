@@ -6,7 +6,8 @@ const {
   preprocessor,
 } = require('@badeball/cypress-cucumber-preprocessor/browserify');
 const sqlServer = require('cypress-sql-server');
-// const oracledb = require('oracledb');
+const excelToJson = require('convert-excel-to-json');
+const fs = require('fs');
 
 async function setupNodeEvents(on, config) {
   config.db = {
@@ -26,6 +27,17 @@ async function setupNodeEvents(on, config) {
   // SQL
   tasks = sqlServer.loadDBPlugin(config.db);
   on('task', tasks);
+
+  on('task', {
+    excelToJsonConverter(filePath) {
+      const result = excelToJson({
+        source: fs.readFileSync(filePath),
+      });
+      return result;
+    },
+  });
+
+  // Return config is NECCESARILY
   return config;
 }
 
