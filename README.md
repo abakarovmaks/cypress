@@ -1,0 +1,2 @@
+# cypress
+Autotests in Cypress
